@@ -1,5 +1,55 @@
+     // Time function
+     function getTime(){
+        const Time=new Date()
+        const date=Time.getDate()
+        const month=Time.getMonth()+1
+        const year=Time.getFullYear()
+        let hr=Time.getHours()
+        const min=Time.getMinutes()
+        const sec=Time.getSeconds()
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayOfWeek = daysOfWeek[Time.getDay()]; // get the day of the week
+        
+        setTimeout(()=>{getTime(),1000})
+        const ampm = hr >= 12 ? 'PM' : 'AM';
+        hr = hr % 12;
+        hr = hr ? hr : 12;
+        document.getElementById("time").innerHTML = `${hr}:${min}:${sec} ${ampm} ${dayOfWeek} ${date}-${month}-${year}`;
+    }
+//change background function
+    const changeBackground=(climate)=>{
+        switch(climate.toLowerCase()){
+            case "rain" :
+                urls="url(./Image/rain.gif)";
+                break;
+            case "clouds" :
+                urls="url(./Image/clouds.gif)";
+                break;
+            case "drizzle" :
+                urls="url(./Image/Drizzle.gif)";
+                break;
+            case "haze" :
+                urls="url(./Image/haze.gif)";
+                break;
+            case "mist" :
+                urls="url(./Image/mist.gif)";
+                break;
+            case "snow" :
+                urls="url(./Image/snow.gif)";
+                break;
+            case "thunderstorm" :
+                urls="url(./Image/Thunderstorm.gif)";
+                break;
+            default:
+                urls="url(./Image/mist.gif)";
+    
+        }
+        document.getElementById("weather-app").style.backgroundImage = urls;
+    }
+
 const search = async()=>{
     // console.log(place.value);
+    
     // fetch data
     const data= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.value}&appid=5fe36b192ffd1c36dffb6752bc1722b2`)
 
@@ -67,62 +117,12 @@ const search = async()=>{
                                 </div>
 
                             </div>`
-        
- // Time function
-function getTime(){
-    const Time=new Date()
-    const date=Time.getDate()
-    const month=Time.getMonth()+1
-    const year=Time.getFullYear()
-    let hr=Time.getHours()
-    const min=Time.getMinutes()
-    const sec=Time.getSeconds()
-    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const dayOfWeek = daysOfWeek[Time.getDay()]; // get the day of the week
+              
     
-    setTimeout(()=>{getTime(),1000})
-    const ampm = hr >= 12 ? 'PM' : 'AM';
-    hr = hr % 12;
-    hr = hr ? hr : 12;
-    time.innerHTML = `${hr}:${min}:${sec} ${ampm} ${dayOfWeek} ${date}-${month}-${year}`;
-}
-// time function call
-getTime()
-
-//change background function
-
-const changeBackground=(climate)=>{
-    switch(climate.toLowerCase()){
-        case "rain" :
-            urls="url(./Image/rain.gif)";
-            break;
-        case "clouds" :
-            urls="url(./Image/clouds.gif)";
-            break;
-        case "drizzle" :
-            urls="url(./Image/Drizzle.gif)";
-            break;
-        case "haze" :
-            urls="url(./Image/haze.gif)";
-            break;
-        case "mist" :
-            urls="url(./Image/mist.gif)";
-            break;
-        case "snow" :
-            urls="url(./Image/snow.gif)";
-            break;
-        case "thunderstorm" :
-            urls="url(./Image/Thunderstorm.gif)";
-            break;
-        default:
-            urls="url(./Image/mist.gif)";
-
-    }
-    document.getElementById("weather-app").style.backgroundImage = urls;
-}
-
-// background change function call
-changeBackground(weathers)
-        
+        // time function call
+        getTime()
+        // background change function call
+        changeBackground(weathers)
     })
+
 }
