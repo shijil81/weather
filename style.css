@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    overflow-x: hidden;
+}
+.weather-app{
+    background-image: url(./Image/clear.gif);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* img background box */
+.main{
+    background-color: rgba(15, 130, 245, 0.2);
+    padding: 20px;
+    border-radius: 30px;
+}
+
+/* heading and search bar area  */
+.brand{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
+.input-container{
+    padding: 1px;
+    background-color: rgba(227, 230, 229, 0.5);
+    max-width: fit-content;
+    border-radius: 20px;
+}
+
+.input-box{
+    background: none;
+    border: none;
+    text-align: center;
+    max-width: 300px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* weather box */
+.weather{
+    background-color: rgba(203, 207, 205, 0.3);
+    border: 1px solid rgb(102, 101, 101);
+    border-radius: 30px;
+}
+
+/* weather details left */
+.weather-first{
+    padding: 20px;
+}
+.heading h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.heading h4{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: 17px;
+font-weight: 500;
+}
+.condition h1{
+    font-size: 70px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: inherit;
+}
+.condition h3{
+    font-size: 45px;
+    font-weight: 400;
+    font-family: "Noto Serif", serif;
+}
+
+.location{
+    padding-top: 10px;
+    font-family: "Noto Serif", serif;
+}
+.weather marquee{
+    color: rgb(252, 246, 246);
+    font-family: "Rajdhani", sans-serif;
+    padding: 2px;
+    font-weight: 600;
+    background-color: rgba(6, 4, 4, 0.445);
+    border-radius: 50px;
+    margin-top: 20px;
+}
+/* weather details right box */
+.weather-exp{
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 30px;
+    padding: 20px;
+    color: white;
+
+}
+.weather_details{
+    border-radius: 20px;
+    padding: 20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-size: 20px; 
+    text-shadow: 1px 1px 2px rgb(15, 15, 15), -1px -1px 2px rgb(46, 0, 0);
+}
+.weather_details span{
+    font-size: 25px;
+    font-family: "Rajdhani", sans-serif;
+    padding-left: 15px;
+}
+
+.weather_details p::after{
+    content: '';
+    width: 80%;
+    height: 3px;
+    background: rgb(129, 128, 128);
+    display: block;
+    position: relative;
+    bottom: -5px;
+}
