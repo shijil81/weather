@@ -40,6 +40,9 @@
             case "thunderstorm" :
                 urls="url(./Image/Thunderstorm.gif)";
                 break;
+            case "clear" :
+                urls="url(./Image/clear.gif)";
+                break;
             default:
                 urls="url(./Image/mist.gif)";
     
@@ -51,8 +54,10 @@ const search = async()=>{
     // console.log(place.value);
     
     // fetch data
-    const data= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.value}&appid=5fe36b192ffd1c36dffb6752bc1722b2`)
+    try{const data= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place.value}&appid=5fe36b192ffd1c36dffb6752bc1722b2`)
 
+    if (!data.ok) throw new Error('Invalid input or unable to fetch data');
+    
     data.json().then((details)=>{
 
 
@@ -123,6 +128,9 @@ const search = async()=>{
         getTime()
         // background change function call
         changeBackground(weathers)
-    })
+    })}catch (error) {
+        alert('Invalid input or unable to fetch data...Please check if the location is correct.');
+    }
+    
 
 }
